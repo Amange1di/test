@@ -1,0 +1,43 @@
+@import url('https://fonts.googleapis.com/css2?family=Exo+2:ital,wght@0,100..900;1,100..900&family=Fira+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Fredoka:wght@300..700&family=Montserrat:ital@0;1&family=Noto+Sans:ital,wght@0,100..900;1,100..900&display=swap');
+*{
+    margin: 0;
+    padding: 0;
+
+}
+.container{
+    max-width: 1320px;
+    width: 100%;
+    margin: 0 auto;
+    
+}nav {
+  background-color: #f0f0f0;
+  padding: 10px 20px;
+  display: flex;
+  gap: 20px;
+  font-family: Arial, sans-serif;
+}
+nav{
+    background: #007bff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+}
+nav a {
+  text-decoration: none;
+  color: #333;
+  font-size: 18px;
+  padding: 5px 10px;
+  border-radius: 5px;
+  transition: background-color 0.3s ease;
+}
+
+nav a:hover {
+  background-color: #ddd;
+}
+
+nav a.active {
+  font-weight: bold;
+  color: #007bff;
+  background-color: #e0f0ff;
+}

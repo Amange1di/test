@@ -1,0 +1,75 @@
+.woterSection {
+  width: 100%;
+  height: 100vh;
+  font-family: 'Comic Sans MS', cursive, sans-serif;
+  background: repeating-linear-gradient(
+    135deg,
+    #f9e7c2 0 40px,
+    #f7f3e3 40px 80px
+  );
+  p{
+    max-width: 500px;
+    margin: 0 auto;
+    
+  }
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  &__container {
+    position: relative;
+    width: 200px;
+    height: 200px;
+  }
+
+  &__smallGlass {
+    position: absolute;
+    top: 100px;
+    left: -10px;
+    transform: rotate(0deg);
+    transform-origin: bottom center;
+    transition: all 1s ease-in-out;
+    cursor: pointer;
+    z-index: 2;
+    user-select: none;
+
+    &.pouring {
+      top: -10px;
+      left: 1%;
+      transform: translateX(-50%) rotate(70deg);
+      cursor: default;
+    }
+  }
+
+  &__bigGlass {
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+
+  &__controls {
+    margin-top: 20px;
+    min-width: 150px;
+
+    button {
+      width: 100%;
+      margin-bottom: 8px;
+      padding: 8px 12px;
+      font-size: 16px;
+      cursor: pointer;
+    }
+
+    button:disabled {
+      opacity: 0.6;
+      cursor: not-allowed;
+    }
+  }
+
+  &__text {
+    font-weight: bold;
+    margin-bottom: 8px;
+  }
+}

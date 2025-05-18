@@ -1,0 +1,134 @@
+.balanceSection {
+    width: 100%;
+    height: 100vh;
+  font-family: 'Comic Sans MS', cursive, sans-serif;
+      background: repeating-linear-gradient(135deg, #f9e7c2 0 40px, #f7f3e3 40px 80px);
+
+    &_balka {
+
+        margin: 0 auto;
+        width: 70%;
+        height: 28px;
+        background: linear-gradient(90deg, #bfa14a 0%, #fffbe6 50%, #bfa14a 100%);
+        border-radius: 18px;
+        box-shadow: 0 8px 32px #bfa14a44, 0 2px 0 #fff inset;
+        border: 4px solid #a67c1a;
+        display: flex;
+        align-items: start;
+        justify-content: space-between;
+        padding: 0 10px;
+        gap: 40px;
+        transition: transform 0.3s ease;
+        transform-origin: center center;
+
+
+        &_center {
+            width: 10px;
+            height: 100%;
+            background: #a67c1a;
+            border-radius: 20px;
+        }
+
+        &_left,
+        &_right {
+            display: flex;
+            align-items: start;
+            width: 45%;
+            justify-content: space-between;
+        }
+
+
+    }
+
+    &_stoika {
+        margin-top: 30px;
+        width: 26px;
+        display: flex;
+        align-items: center;
+        justify-content: start;
+        flex-direction: column;
+        height: 270px;
+        background: linear-gradient(180deg, #e2c275 60%, #bfa14a 100%);
+        border-radius: 10px;
+        box-shadow: 0 12px 40px #bfa14a88;
+        margin: 0 auto;
+
+        &_top {
+            width: 44px;
+            height: 28px;
+            background: radial-gradient(ellipse at 50% 40%, #fff 60%, #bfa14a 100%);
+            border-radius: 50% 50% 60% 60%/60% 60% 100% 100%;
+            border: 3px solid #bfa14a;
+            box-shadow: 0 4px 16px #bfa14a55;
+        }
+    }
+}
+
+.selectWrapper {
+    width: 100%;
+    max-width: 300px;
+    margin: 0 auto;
+    padding: 10px;
+
+    select {
+        width: 100%;
+        padding: 10px 14px;
+        font-size: 16px;
+        font-weight: 500;
+        color: #333;
+        border: 2px solid #bfa14a;
+        border-radius: 8px;
+        // background-color: #fff;
+        appearance: none;
+        background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 140 140' width='14' height='14' xmlns='http://www.w3.org/2000/svg'%3E%3Cpolyline points='30,50 70,90 110,50' stroke='%23666' stroke-width='15' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");
+        background-repeat: no-repeat;
+        background-position: right 14px center;
+        background-size: 14px;
+
+        &:focus {
+            outline: none;
+            border-color: #e2c275;
+            box-shadow: 0 0 5px rgba(191, 161, 74, 0.5);
+        }
+    }
+}
+
+@media (max-width: 768px) {
+    .balanceSection {
+        max-width: 600px;
+
+        &_balka {
+            max-width: 600px;
+
+            width: 90%;
+            height: 18px;
+            gap: 15px;
+
+        }
+
+        &_stoika {
+            width: 20px;
+            height: 170px;
+
+            &_top {
+                width: 25px;
+                height: 18px;
+                background: radial-gradient(ellipse at 50% 40%, #fff 60%, #bfa14a 100%);
+                border-radius: 50% 50% 60% 60%/60% 60% 100% 100%;
+                border: 3px solid #bfa14a;
+                box-shadow: 0 4px 16px #bfa14a55;
+            }
+        }
+    }
+}
+
+@media (max-width: 400px) {
+    .balanceSection {
+        max-width: 405px;
+
+        &_balka {
+            max-width: 405px;
+
+        }
+    }
+}

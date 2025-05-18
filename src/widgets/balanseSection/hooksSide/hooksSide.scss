@@ -1,0 +1,241 @@
+.balanceSection {
+    &_balka {
+        &_hooks {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+
+            span {
+                font-size: 22px;
+                color: #ff0000;
+                font-weight: 700;
+                margin-top: 2px;
+                text-shadow: 0 1px 0 #fff, 0 0 6px #ffe06644;
+                user-select: none;
+            }
+
+            &_svg {
+                position: relative;
+                width: 24px;
+                height: 30px;
+                margin: 0 auto;
+
+                &::before {
+                    content: "";
+                    position: absolute;
+                    left: 50%;
+                    top: 0;
+                    width: 4px;
+                    height: 20px;
+                    background-color: #bfa14a;
+                    transform: translateX(-50%);
+                    z-index: 2;
+                }
+
+                &::after {
+                    content: "";
+                    position: absolute;
+                    left: 50%;
+                    bottom: 0;
+                    width: 20px;
+                    height: 20px;
+                    border: 4px solid #bfa14a;
+                    border-top: none;
+                    border-right: none;
+                    border-radius: 0 0 20px 20px;
+                    transform: translateX(-50%) rotate(-45deg);
+                    box-sizing: border-box;
+                    background-color: transparent;
+                    z-index: 2;
+                }
+            }
+
+
+            &_masa {
+                width: 25px;
+                height: 40px;
+                background: linear-gradient(180deg, #bfa14a 0%, #e2c275 100%);
+                border-radius: 4px;
+                box-shadow: 0 0 5px #bfa14a88;
+                position: relative;
+                margin-left: 10px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                color: #fff;
+                font-weight: 700;
+                user-select: none;
+                cursor: grab;
+
+                &::before {
+                    content: "";
+                    position: absolute;
+                    top: -8px;
+                    left: 50%;
+                    width: 20px;
+                    height: 6px;
+                    border: 3px solid #bfa14a;
+                    border-bottom: none;
+                    border-radius: 10px 10px 0 0;
+                    transform: translateX(-50%);
+                    background-color: transparent;
+                    box-shadow: 0 2px 5px #bfa14a44;
+                }
+
+
+                h3 {
+                    color: #fff;
+
+                }
+            }
+        }
+    }
+}
+
+@media (max-width: 768px) {
+    .balanceSection{
+          &_balka {
+            
+        &_hooks {
+            
+
+            span {
+                font-size: 16px;
+                font-weight: 500;
+            }
+
+            &_svg {
+                position: relative;
+                width: 16px;
+                height: 16px;
+                margin: 0 auto;
+
+                &::before {
+                    content: "";
+                    position: absolute;
+                    left: 50%;
+                    top: 0;
+                    width: 4px;
+                    height: 15px;
+                    background-color: #bfa14a;
+                    // border-radius: 2px;
+                    transform: translateX(-50%);
+                    z-index: 2;
+                }
+
+                &::after {
+                    content: "";
+                    position: absolute;
+                    left: 50%;
+                    bottom: 0;
+                    width: 10px;
+                    height: 10px;
+                    border: 4px solid #bfa14a;
+                    border-top: none;
+                    border-right: none;
+                    transform: translateX(-50%) rotate(-45deg);
+                    box-sizing: border-box;
+                    background-color: transparent;
+                    z-index: 2;
+                }
+            }
+
+
+            &_masa {
+                width: 15px;
+                height: 20px;
+                background: linear-gradient(180deg, #bfa14a 0%, #e2c275 100%);
+                border-radius: 4px;
+                box-shadow: 0 0 5px #bfa14a88;
+                position: relative;
+                margin-left: 10px;
+                
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                color: #fff;
+                font-weight: 400;
+                user-select: none;
+                cursor: grab;
+
+                &::before {
+                    content: "";
+                    position: absolute;
+                    top: -8px;
+                    left: 50%;
+                    width: 10px;
+                    height: 6px;
+                    border: 3px solid #bfa14a;
+                    border-bottom: none;
+                    border-radius: 10px 10px 0 0;
+                    transform: translateX(-50%);
+                    background-color: transparent;
+                    box-shadow: 0 2px 5px #bfa14a44;
+                }
+
+
+                h3 {
+                font-size: 14px !important;
+
+                }
+            }
+        }
+    }
+    }
+}
+
+@media (max-width: 400px) {
+    .balanceSection{
+          &_balka {
+            
+        &_hooks {
+            
+
+            span {
+                font-size: 14px;
+                font-weight: 500;
+            }
+
+            &_svg {
+                position: relative;
+                width: 14px;
+                height: 16px;
+                margin: 0 auto;
+
+                &::before {
+                    content: "";
+                    position: absolute;
+                    left: 50%;
+                    top: 0;
+                    width: 4px;
+                    height: 15px;
+                    background-color: #bfa14a;
+                    // border-radius: 2px;
+                    transform: translateX(-50%);
+                    z-index: 2;
+                }
+
+                &::after {
+                    content: "";
+                    position: absolute;
+                    left: 50%;
+                    bottom: 0;
+                    width: 10px;
+                    height: 10px;
+                    border: 4px solid #bfa14a;
+                    border-top: none;
+                    border-right: none;
+                    transform: translateX(-50%) rotate(-45deg);
+                    box-sizing: border-box;
+                    background-color: transparent;
+                    z-index: 2;
+                }
+            }
+
+
+          
+        }
+    }
+    }
+}

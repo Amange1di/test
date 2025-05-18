@@ -1,0 +1,53 @@
+.balanceSection_weights {
+    display: flex;
+    gap: 12px;
+    margin: 20px auto;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+
+    &_group {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 15px;
+    }
+
+    .balanceSection_weight {
+        width: 40px;
+        height: 40px;
+        background: #bfa14a;
+        color: white;
+        font-weight: bold;
+        border-radius: 6px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: grab;
+        box-shadow: 0 4px 10px #bfa14a88;
+        user-select: none;
+    }
+
+    button {
+        padding: 6px 12px;
+        border-radius: 6px;
+        background: #0bb630;
+        color: white;
+        font-weight: bold;
+        border: none;
+        cursor: pointer;
+        margin-left: 16px;
+    }
+    .rest{
+        max-width: 40px;
+        height: 40px;
+        padding: 0;
+        border-radius: 50%;
+        
+        img{
+            width: 100%;
+
+        }
+    }
+}
