@@ -37,7 +37,6 @@ export const WoterSection = () => {
         return res.json();
       })
       .then((data: Settings[]) => {
-        setSettingsList(data);
         if (data.length > 0) {
           setCurrentSettings(data[0]);
           setValue(0);
