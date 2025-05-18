@@ -1,9 +1,9 @@
-import React, { useState, useEffect, useRef } from "react";
-import {  BigGlass,  SmallGlass2 } from "../../shared/svg";
+import { useState, useEffect, useRef } from "react";
+import { BigGlass, SmallGlass2 } from "../../shared/svg";
 import "./woterSection.scss";
 import { Modal } from "../../features/modal/Modal";
 import water from "../../shared/mp3/water-splash.mp3";
-import finsh from "../../shared/mp3/finsh.mp3"
+import finsh from "../../shared/mp3/finsh.mp3";
 
 type Settings = {
   vesselCap: number;
@@ -26,8 +26,9 @@ export const WoterSection = () => {
 
   const API_URL = "https://6829f512ab2b5004cb355781.mockapi.io/s";
 
-  // Audio ref для звука воды
+  // Audio refs для звуков
   const waterAudio = useRef<HTMLAudioElement | null>(null);
+  const finshAudio = useRef<HTMLAudioElement | null>(null);
 
   useEffect(() => {
     fetch(API_URL)
@@ -52,8 +53,8 @@ export const WoterSection = () => {
   }, []);
 
   useEffect(() => {
-    // Инициализируем объект Audio
     waterAudio.current = new Audio(water);
+    finshAudio.current = new Audio(finsh);
   }, []);
 
   if (!currentSettings) {
@@ -63,36 +64,45 @@ export const WoterSection = () => {
   const { vesselCap, pourSize, description } = currentSettings;
   const maxPourCount = Math.ceil(vesselCap / pourSize);
 
- const handlePour = () => {
-  if (value >= vesselCap || pouring) return;
+  const handlePour = () => {
+    if (value >= vesselCap || pouring) return;
 
-  setPouring(true);
+    setPouring(true);
 
-  setTimeout(() => {
-    if (waterAudio.current) {
-      waterAudio.current.currentTime = 0;
-      waterAudio.current.play();
+    setTimeout(() => {
+      if (waterAudio.current) {
+        waterAudio.current.currentTime = 0;
+        waterAudio.current.play();
+      }
+    }, 600);
+
+    setTimeout(() => {
+      setPouredCount((prev) => prev + 1);
+    }, 2000);
+
+    setTimeout(() => {
+      setValue((prev) => Math.min(prev + pourSize, vesselCap));
+    }, 2000);
+
+    setTimeout(() => {
+      setPouring(false);
+    }, 2000);
+  };
+
+  // Функция для открытия модального окна и проигрывания звука
+  const openModalWithSound = (message: string) => {
+    setModalMessage(message);
+    setIsModalOpen(true);
+
+    if (finshAudio.current) {
+      finshAudio.current.currentTime = 0;
+      finshAudio.current.play();
     }
-  }, 600);
-
-  setTimeout(() => {
-    setPouredCount((prev) => prev + 1);
-  }, 2000);
-
-  setTimeout(() => {
-    setValue((prev) => Math.min(prev + pourSize, vesselCap));
-  }, 2000);
-
-  setTimeout(() => {
-    setPouring(false);
-  }, 2000);
-};
-
+  };
 
   const handleCheck = () => {
     if (pouredCount === maxPourCount) {
-      setModalMessage("Правильно! Сосуд заполнен.");
-      setIsModalOpen(true);
+      openModalWithSound("Правильно! Сосуд заполнен.");
       setMessage("");
     } else {
       setMessage(`Нужно вылить ровно ${maxPourCount} раз(а), а вылили ${pouredCount}.`);
