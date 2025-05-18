@@ -13,7 +13,7 @@ type Settings = {
 };
 
 export const WoterSection = () => {
-  const [settingsList, setSettingsList] = useState<Settings[]>([]);
+  const [setSettingsList] = useState<Settings[]>([]);
   const [currentSettings, setCurrentSettings] = useState<Settings | null>(null);
 
   const [value, setValue] = useState(0);
