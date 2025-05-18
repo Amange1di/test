@@ -1,10 +1,9 @@
 type SmallGlass2Props = {
   value: number;
   vesselCap: number;
-  pourSize: number;
 };
 
-export const SmallGlass2 = ({ value, vesselCap, pourSize }: SmallGlass2Props) => {
+export const SmallGlass2 = ({ value, vesselCap,  }: SmallGlass2Props) => {
   const minY = 30;
   const maxY = 0;
   const waterLevelY = minY - ((value / vesselCap) * (minY - maxY));

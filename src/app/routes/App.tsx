@@ -1,4 +1,3 @@
-import React from 'react'
 import { BrowserRouter, Routes, Route, NavLink } from 'react-router-dom'
 import '../style/app.scss'
 import { Balance, Woter } from '../../pages'
