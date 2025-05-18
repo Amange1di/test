@@ -1,6 +1,7 @@
 type SmallGlass2Props = {
   value: number;
   vesselCap: number;
+  pourSize: number;
 };
 
 export const SmallGlass2 = ({ value, vesselCap,  }: SmallGlass2Props) => {
