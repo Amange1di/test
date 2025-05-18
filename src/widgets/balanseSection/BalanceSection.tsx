@@ -121,22 +121,28 @@ export const BalanceSection = () => {
     setShowModal(false);
   };
 
-  const calculateTorque = () => {
-    const leftTorque = leftWeights.reduce((sum, weight, index) => {
-      if (weight !== null) {
-        const distance = 10 - index;
-        return sum + weight * distance;
-      }
-      return sum;
-    }, 0);
+  const calculateTorque = (): number => {
+    const leftTorque = leftWeights.reduce(
+      (sum: number, weight: number | null, index: number): number => {
+        if (weight !== null) {
+          const distance = 10 - index;
+          return sum + weight * distance;
+        }
+        return sum;
+      },
+      0
+    );
 
-    const rightTorque = rightWeights.reduce((sum, weight, index) => {
-      if (weight !== null) {
-        const distance = index + 1;
-        return sum + weight * distance;
-      }
-      return sum;
-    }, 0);
+    const rightTorque = rightWeights.reduce(
+      (sum: number, weight: number | null, index: number): number => {
+        if (weight !== null) {
+          const distance = index + 1;
+          return sum + weight * distance;
+        }
+        return sum;
+      },
+      0
+    );
 
     return leftTorque - rightTorque;
   };
