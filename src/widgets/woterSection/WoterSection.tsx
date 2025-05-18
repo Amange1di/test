@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef } from "react";
-import { Flask, BigGlass, SmallGlass, SmallGlass2 } from "../../shared/svg";
+import {  BigGlass,  SmallGlass2 } from "../../shared/svg";
 import "./woterSection.scss";
 import { Modal } from "../../features/modal/Modal";
 import water from "../../shared/mp3/water-splash.mp3";
