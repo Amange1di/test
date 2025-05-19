@@ -15,3 +15,8 @@ type Props = {
   onCheck: () => void;
   onRemove: () => void;
 };
+export type Task = {
+  id: string;
+  task: string;
+  mass: number[];
+};

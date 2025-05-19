@@ -6,17 +6,13 @@ import weightSound from "../../shared/mp3/weight-sound.mp3";
 import { AvailableWeights } from "./availableWeights/AvailableWeights";
 import { HooksSide } from "./hooksSide/HooksSide";
 import { Modal } from "../../features/modal/Modal";
-
+import { Task } from "../../type/type";
 const MOCKAPI_URL = "https://682857da6b7628c52912fd96.mockapi.io/a";
 
 const hooksLeft = [10, 9, 8, 7, 6, 5, 4, 3, 2, 1];
 const hooksRight = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
 
-type Task = {
-  id: string;
-  task: string;
-  mass: number[];
-};
+
 
 export const BalanceSection = () => {
   const [tasks, setTasks] = useState<Task[]>([]);
