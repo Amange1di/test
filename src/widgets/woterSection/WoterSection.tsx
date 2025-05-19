@@ -1,20 +1,15 @@
 import { useState, useEffect, useRef } from "react";
 import { BigGlass, SmallGlass2 } from "../../shared/svg";
-import "./woterSection.scss";
-import { Modal } from "../../features/modal/Modal";
 import water from "../../shared/mp3/water-splash.mp3";
 import finsh from "../../shared/mp3/finsh.mp3";
+import { Modal } from "../../features/modal/Modal";
+import { Settings } from "../../type/type";
+import { WoterControls } from "./WoterControls";
 
-type Settings = {
-  vesselCap: number;
-  pourSize: number;
-  description: string;
-  id: string;
-};
+import "./woterSection.scss";
 
 export const WoterSection = () => {
   const [currentSettings, setCurrentSettings] = useState<Settings | null>(null);
-
   const [value, setValue] = useState(0);
   const [pouring, setPouring] = useState(false);
   const [pouredCount, setPouredCount] = useState(0);
@@ -25,16 +20,12 @@ export const WoterSection = () => {
 
   const API_URL = "https://6829f512ab2b5004cb355781.mockapi.io/s";
 
-  // Audio refs для звуков
   const waterAudio = useRef<HTMLAudioElement | null>(null);
   const finshAudio = useRef<HTMLAudioElement | null>(null);
 
   useEffect(() => {
     fetch(API_URL)
-      .then((res) => {
-        if (!res.ok) throw new Error("Ошибка сети");
-        return res.json();
-      })
+      .then((res) => res.json())
       .then((data: Settings[]) => {
         if (data.length > 0) {
           setCurrentSettings(data[0]);
@@ -55,9 +46,7 @@ export const WoterSection = () => {
     finshAudio.current = new Audio(finsh);
   }, []);
 
-  if (!currentSettings) {
-    return <div>Загрузка...</div>;
-  }
+  if (!currentSettings) return <div>Загрузка...</div>;
 
   const { vesselCap, pourSize, description } = currentSettings;
   const maxPourCount = Math.ceil(vesselCap / pourSize);
@@ -68,34 +57,20 @@ export const WoterSection = () => {
     setPouring(true);
 
     setTimeout(() => {
-      if (waterAudio.current) {
-        waterAudio.current.currentTime = 0;
-        waterAudio.current.play();
-      }
+      waterAudio.current?.play();
     }, 600);
 
     setTimeout(() => {
       setPouredCount((prev) => prev + 1);
-    }, 2000);
-
-    setTimeout(() => {
       setValue((prev) => Math.min(prev + pourSize, vesselCap));
-    }, 2000);
-
-    setTimeout(() => {
       setPouring(false);
     }, 2000);
   };
 
-  // Функция для открытия модального окна и проигрывания звука
   const openModalWithSound = (message: string) => {
     setModalMessage(message);
     setIsModalOpen(true);
-
-    if (finshAudio.current) {
-      finshAudio.current.currentTime = 0;
-      finshAudio.current.play();
-    }
+    finshAudio.current?.play();
   };
 
   const handleCheck = () => {
@@ -115,9 +90,7 @@ export const WoterSection = () => {
     }
   };
 
-  const closeModal = () => {
-    setIsModalOpen(false);
-  };
+  const closeModal = () => setIsModalOpen(false);
 
   return (
     <div className="woterSection">
@@ -146,17 +119,14 @@ export const WoterSection = () => {
         />
       )}
 
-      <div className="woterSection__controls">
-        {message && <p className="woterSection__message">{message}</p>}
-
-        <p className="woterSection__text">Выливаний: {pouredCount}</p>
-        <button onClick={handleCheck} disabled={pouring}>
-          Проверить
-        </button>
-        <button onClick={handleRemove} disabled={pouring}>
-          Убрать воду
-        </button>
-      </div>
+      <WoterControls
+        pouring={pouring}
+        pouredCount={pouredCount}
+        maxPourCount={maxPourCount}
+        message={message}
+        onCheck={handleCheck}
+        onRemove={handleRemove}
+      />
     </div>
   );
 };
